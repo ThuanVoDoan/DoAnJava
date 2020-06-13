@@ -28,7 +28,9 @@ public class Main extends javax.swing.JFrame {
     public Main() {
         initComponents();
         this.lbMNV.setText(frmLogin.manv);
-        KeyListener();   
+        KeyListener(); 
+        BanHang bh = new BanHang();
+       this.Desktop.add(bh).show();
         new Thread()
         {
                 public void run()
