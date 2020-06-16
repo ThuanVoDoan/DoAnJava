@@ -137,7 +137,7 @@ public class frmLogin extends javax.swing.JFrame {
                 String userName ="ba";
                 String password = "8888";
                 String url = "jdbc:sqlserver://DOANTHUAN\\SQLEXPRESS:1432;databaseName=QLNH;";
-                String sql = "SELECT * FROM UserConnect\n" + "WHERE UserName=? AND Password=? AND Manager = 'QL'";
+                String sql = "SELECT * FROM UserConnect\n" + "WHERE UserName=? AND Password=?";
                 Connection conn = DriverManager.getConnection(url,userName,password);
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ps.setString(1, tftaikhoan.getText());

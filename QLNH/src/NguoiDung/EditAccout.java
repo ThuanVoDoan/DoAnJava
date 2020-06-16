@@ -22,7 +22,7 @@ public class EditAccout extends javax.swing.JFrame {
  public void showCT()
     {
         UpdataTable.LoadData(sql, tbac);
-       
+      
     }
   public static ResultSet rs=null;
     public static PreparedStatement pst=null;
@@ -39,7 +39,6 @@ public class EditAccout extends javax.swing.JFrame {
         btDoimk = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtus = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbac = new javax.swing.JTable();
@@ -75,8 +74,6 @@ public class EditAccout extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setText("Mật Khẩu Mới:");
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Image/Login_Key.png"))); // NOI18N
-
         txtus.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
 
         tbac.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -109,8 +106,7 @@ public class EditAccout extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3))
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtpasscu, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
@@ -127,8 +123,7 @@ public class EditAccout extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
+                .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -246,7 +241,6 @@ public class EditAccout extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tbac;
     private javax.swing.JPasswordField txtpasscu;

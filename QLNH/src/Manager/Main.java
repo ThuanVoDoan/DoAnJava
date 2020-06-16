@@ -17,20 +17,34 @@ import ThucDon.*;
 import NguoiDung.*;
 import KhachHang.*;
 import NhanVien.*;
+import java.awt.Color;
 
 /**
  *
  * @author Shark
  */
 public class Main extends javax.swing.JFrame {
-
+    String ten;
      int timeRun=0;
     public Main() {
         initComponents();
         this.lbMNV.setText(frmLogin.manv);
+        String ten = lbMNV.getText();
+        if( ten.equals("doanthuan") || ten.equals("lethanh")){
+            BanHang bh = new BanHang();
+            this.Desktop.add(bh).show();
+        }else if(ten.equals("hung")){
+            BanHang bh = new BanHang();
+            this.Desktop.add(bh).show();
+            quanly.setVisible(false);
+            QLND.setVisible(false);
+        }else if(ten.equals("khoa")){
+            QLND.setVisible(false);
+            BanHang bh = new BanHang();
+            this.Desktop.add(bh).show();
+            MNNV.setVisible(false);
+        }
         KeyListener(); 
-        BanHang bh = new BanHang();
-       this.Desktop.add(bh).show();
         new Thread()
         {
                 public void run()
@@ -102,11 +116,11 @@ public class Main extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         lbMNV = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        mnMent = new javax.swing.JMenuItem();
+        chucnang = new javax.swing.JMenu();
+        QLND = new javax.swing.JMenuItem();
         mnDislog = new javax.swing.JMenuItem();
         mnExit = new javax.swing.JMenuItem();
-        jMenu1 = new javax.swing.JMenu();
+        quanly = new javax.swing.JMenu();
         mnThucdon = new javax.swing.JMenuItem();
         mbKhachHang = new javax.swing.JMenuItem();
         MNNV = new javax.swing.JMenuItem();
@@ -176,16 +190,16 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(0, 255, 0)));
         jMenuBar1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        jMenu2.setText("Chức Năng");
-        jMenu2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        chucnang.setText("Chức Năng");
+        chucnang.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
-        mnMent.setText("Quản Lý Người Dùng");
-        mnMent.addActionListener(new java.awt.event.ActionListener() {
+        QLND.setText("Quản Lý Người Dùng");
+        QLND.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnMentActionPerformed(evt);
+                QLNDActionPerformed(evt);
             }
         });
-        jMenu2.add(mnMent);
+        chucnang.add(QLND);
 
         mnDislog.setText("Đăng Xuất");
         mnDislog.addActionListener(new java.awt.event.ActionListener() {
@@ -193,7 +207,7 @@ public class Main extends javax.swing.JFrame {
                 mnDislogActionPerformed(evt);
             }
         });
-        jMenu2.add(mnDislog);
+        chucnang.add(mnDislog);
 
         mnExit.setText("Thoát");
         mnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -201,12 +215,12 @@ public class Main extends javax.swing.JFrame {
                 mnExitActionPerformed(evt);
             }
         });
-        jMenu2.add(mnExit);
+        chucnang.add(mnExit);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(chucnang);
 
-        jMenu1.setText("Quản lý");
-        jMenu1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        quanly.setText("Quản lý");
+        quanly.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
 
         mnThucdon.setText("Thực Đơn");
         mnThucdon.addActionListener(new java.awt.event.ActionListener() {
@@ -214,7 +228,7 @@ public class Main extends javax.swing.JFrame {
                 mnThucdonActionPerformed(evt);
             }
         });
-        jMenu1.add(mnThucdon);
+        quanly.add(mnThucdon);
 
         mbKhachHang.setText("Khách Hàng");
         mbKhachHang.addActionListener(new java.awt.event.ActionListener() {
@@ -222,7 +236,7 @@ public class Main extends javax.swing.JFrame {
                 mbKhachHangActionPerformed(evt);
             }
         });
-        jMenu1.add(mbKhachHang);
+        quanly.add(mbKhachHang);
 
         MNNV.setText("Nhân Viên");
         MNNV.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +244,7 @@ public class Main extends javax.swing.JFrame {
                 MNNVActionPerformed(evt);
             }
         });
-        jMenu1.add(MNNV);
+        quanly.add(MNNV);
 
         jMenuItem3.setText("Bán Hàng");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -238,7 +252,7 @@ public class Main extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        quanly.add(jMenuItem3);
 
         jMenuItem2.setText("Đơn vị thực đơn");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -246,7 +260,7 @@ public class Main extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        quanly.add(jMenuItem2);
 
         jMenuItem4.setText("Danh mục thực đơn");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -254,9 +268,9 @@ public class Main extends javax.swing.JFrame {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        quanly.add(jMenuItem4);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(quanly);
 
         jMenu3.setText("Trợ Giúp");
         jMenu3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -312,11 +326,11 @@ public class Main extends javax.swing.JFrame {
        new About().setVisible(true);
     }//GEN-LAST:event_mnAboutActionPerformed
 
-    private void mnMentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnMentActionPerformed
+    private void QLNDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QLNDActionPerformed
        HeThong HT = new HeThong();
        this.Desktop.add(HT).show();
        
-    }//GEN-LAST:event_mnMentActionPerformed
+    }//GEN-LAST:event_QLNDActionPerformed
 
     private void mbKhachHangActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mbKhachHangActionPerformed
        DSKhachHang KH = new DSKhachHang();
@@ -383,9 +397,9 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Desktop;
     private javax.swing.JMenuItem MNNV;
+    private javax.swing.JMenuItem QLND;
+    private javax.swing.JMenu chucnang;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -398,8 +412,8 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem mnAbout;
     private javax.swing.JMenuItem mnDislog;
     private javax.swing.JMenuItem mnExit;
-    private javax.swing.JMenuItem mnMent;
     private javax.swing.JMenuItem mnThucdon;
+    private javax.swing.JMenu quanly;
     private javax.swing.JLabel txtTime;
     private javax.swing.JLabel txtdate;
     // End of variables declaration//GEN-END:variables
